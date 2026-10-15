@@ -112,7 +112,7 @@ five in the settings.
 ## Install
 
 ```bash
-omarchy plugin add https://github.com/edree0x/stage-control.plus.git --enable
+omarchy plugin add https://github.com/edree0x/edree0x.stage-control-plus.git --enable
 ```
 
 That's all: no setup step, nothing to build, and your Hyprland config is not

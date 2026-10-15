@@ -51,4 +51,4 @@ Combines, unchanged, what each plugin did.
   toggle, and the multi-display grid.
 - Bird's Eye by **Harel Malka** — Exposé builds on it.
 
-[1.0.0]: https://github.com/edree0x/stage-control.plus/releases/tag/v1.0.0
+[1.0.0]: https://github.com/edree0x/edree0x.stage-control-plus/releases/tag/v1.0.0

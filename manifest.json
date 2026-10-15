@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "author": "marcho78, kristofferR, edree0x",
   "license": "MIT",
-  "homepage": "https://github.com/edree0x/stage-control.plus",
+  "homepage": "https://github.com/edree0x/edree0x.stage-control-plus",
   "description": "Organize your desktops from one view. Swipe up with four fingers (or press Super+A) and every window steps onto a live stage, under a bar of all your desktops with live thumbnails. Drag windows between desktops; add, remove, reorder and rename them. Type to search, press Space for a Quick Look, Tab to switch between this desktop and every desktop, choose one display or all, and click to close windows. Liquid Glass styling, configurable hot corners, and a settings window.",
   "kinds": [
     "service",
