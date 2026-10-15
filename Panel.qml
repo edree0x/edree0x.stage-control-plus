@@ -4,7 +4,7 @@ import qs.Commons
 
 // The Stage Control Plus settings window. Open it with
 // `omarchy-shell stage-control-plus settings`, a right-click on the stage, or
-//   omarchy-shell shell summon stage-control.plus '{}'
+//   omarchy-shell shell summon edree0x.stage-control-plus '{}'
 //
 // Settings live on Stage Control Plus's entry in ~/.config/omarchy/shell.json (only
 // what differs from Defaults.js) and apply as you change them.
@@ -15,7 +15,7 @@ Item {
   property var service: null
   property bool closingFromHost: false
 
-  readonly property string pluginId: "stage-control.plus"
+  readonly property string pluginId: "edree0x.stage-control-plus"
 
   // Payload may name a page: { "page": "corners" }.
   function open(payloadJson) {

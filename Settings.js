@@ -250,8 +250,8 @@ function hyprRegistration(moduleFile, options) {
 }
 
 // Parses a custom Hyprland event sent by hypr/stage.lua, e.g.
-// "stage-control.plus|g|update|0.00|-12.50|1016.00|4". Returns null for other events.
-var EVENT_PREFIX = "stage-control.plus|"
+// "edree0x.stage-control-plus|g|update|0.00|-12.50|1016.00|4". Returns null for other events.
+var EVENT_PREFIX = "edree0x.stage-control-plus|"
 
 function parseEvent(data) {
   var text = String(data || "")

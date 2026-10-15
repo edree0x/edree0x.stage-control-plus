@@ -54,6 +54,26 @@ down for just the current app's windows.
   screen: title bars and borders ride along with their windows, and the bar
   slides away instead of blinking out.
 
+## More than the originals
+
+Stage Control Plus is a merge of two Omarchy plugins —
+[Stage Control](https://github.com/marcho78/omarchy-stage-control) by marcho78
+and [Exposé](https://github.com/kristofferR/omarchy-expose) by kristofferR — so
+you get both feature sets in one icon, not a choice between them:
+
+| | Stage Control | Exposé | Stage Control Plus |
+|---|:---:|:---:|:---:|
+| Live stage that follows your fingers | ✓ | — | ✓ |
+| Spaces bar & desktop management | ✓ | — | ✓ |
+| App Exposé (down-swipe) | ✓ | — | ✓ |
+| Liquid Glass styling | ✓ | — | ✓ |
+| Hot corners | ✓ | ✓ | ✓, with a linger time and a display choice |
+| Type to search | — | ✓ | ✓ |
+| Quick Look (Space) | — | ✓ | ✓ |
+| Tab workspace scope | — | ✓ | ✓ |
+| Multi-display grid | — | ✓ | ✓ |
+| Settings window & bar icon | ✓ | ✓ | ✓ |
+
 ## Screenshots
 
 **The stage:** every window on the desktop, under live thumbnails of your
@@ -100,7 +120,7 @@ touched. Stage Control Plus registers its gesture and shortcuts with Hyprland wh
 it runs and takes them back out when you disable it.
 
 Enabling puts Stage Control Plus's icon on the right of the bar; move it with
-`omarchy bar move stage-control.plus --section left` (or `center`).
+`omarchy bar move edree0x.stage-control-plus --section left` (or `center`).
 Omarchy keeps a plugin with a bar icon on for as long as the icon is in the
 bar, so taking the icon out of the bar turns Stage Control Plus off. To keep it
 without the icon, turn off **Show Stage Control Plus in the top bar** in its
@@ -220,7 +240,7 @@ reload (which clears runtime additions), and when you change settings;
 disabling Stage Control Plus removes it all.
 
 The stage announces itself on Hyprland's event socket as
-`custom>>stage-control.plus|state|open` and `…|state|closed`, for other
+`custom>>edree0x.stage-control-plus|state|open` and `…|state|closed`, for other
 plugins (say, a dock that wants to stay up while it's open, as the macOS Dock
 does).
 
@@ -274,7 +294,7 @@ shows and in the same way: off the shell's main thread, so a file that never
 finishes loading can't stall the shell.
 
 **Hyprland's events.** Stage Control Plus acts only on its own
-`stage-control.plus|…` messages (160 characters at most) and on Hyprland's
+`edree0x.stage-control-plus|…` messages (160 characters at most) and on Hyprland's
 window and desktop events, which make it read Hyprland's state again.
 
 **Text.** Every piece of text Stage Control Plus draws, including window titles, app
@@ -318,7 +338,7 @@ The Omarchy shell caches plugin QML, so after changing QML run
 ## Uninstall
 
 ```bash
-omarchy plugin remove stage-control.plus
+omarchy plugin remove edree0x.stage-control-plus
 ```
 
 That's everything: Stage Control Plus's gesture, shortcuts and rules leave Hyprland

@@ -1,4 +1,4 @@
--- Stage Control Plus (stage-control.plus): the Hyprland half.
+-- Stage Control Plus (edree0x.stage-control-plus): the Hyprland half.
 --
 -- The service runs this inside Hyprland with `hyprctl eval` when the shell
 -- starts, after every Hyprland config reload, and when the settings change:
@@ -18,7 +18,7 @@
 -- could register has: `hyprctl eval` shows only "ok" for a returned value, but
 -- prints an error and fails, so the settings window can say what went wrong.
 
-local PREFIX = "stage-control.plus|"
+local PREFIX = "edree0x.stage-control-plus|"
 local EVENTS = { toggle = true, expose = true, ["desktop-prev"] = true, ["desktop-next"] = true }
 local STATE = "__stage_control_plus"
 

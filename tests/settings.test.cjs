@@ -85,16 +85,16 @@ let passed = 0;
     layout: {
       left: [{ id: "omarchy.menu" }],
       center: [{ id: "omarchy.clock" }],
-      right: [{ id: "omarchy.tray" }, { id: "stage-control.plus", dim: 55, desktops: { "eDP-1": [1, 2] } }],
+      right: [{ id: "omarchy.tray" }, { id: "edree0x.stage-control-plus", dim: 55, desktops: { "eDP-1": [1, 2] } }],
     },
   };
-  assert.deepEqual(plain(Settings.entryInBar(barConfig, "stage-control.plus")), { dim: 55, desktops: { "eDP-1": [1, 2] } });
+  assert.deepEqual(plain(Settings.entryInBar(barConfig, "edree0x.stage-control-plus")), { dim: 55, desktops: { "eDP-1": [1, 2] } });
   assert.deepEqual(plain(Settings.entryInBar(barConfig, "someone.else")), {});
   for (const bad of [null, undefined, "nope", [], { layout: "nope" }, { layout: { right: "nope" } }, { layout: { right: [null, 5, "x"] } }]) {
-    assert.deepEqual(plain(Settings.entryInBar(bad, "stage-control.plus")), {}, JSON.stringify(bad));
+    assert.deepEqual(plain(Settings.entryInBar(bad, "edree0x.stage-control-plus")), {}, JSON.stringify(bad));
   }
   // The copy is detached: changing it can't reach the shell's configuration.
-  const copy = Settings.entryInBar(barConfig, "stage-control.plus");
+  const copy = Settings.entryInBar(barConfig, "edree0x.stage-control-plus");
   copy.dim = 1;
   assert.equal(barConfig.layout.right[1].dim, 55);
   passed++;
@@ -130,11 +130,11 @@ let passed = 0;
 
 // ---- events --------------------------------------------------------------------
 {
-  assert.deepEqual(plain(Settings.parseEvent("stage-control.plus|toggle")), { type: "command", command: "toggle" });
-  assert.deepEqual(plain(Settings.parseEvent("stage-control.plus|g|update|0.00|-12.50|1016.00|5")),
+  assert.deepEqual(plain(Settings.parseEvent("edree0x.stage-control-plus|toggle")), { type: "command", command: "toggle" });
+  assert.deepEqual(plain(Settings.parseEvent("edree0x.stage-control-plus|g|update|0.00|-12.50|1016.00|5")),
     { type: "gesture", phase: "update", dx: 0, dy: -12.5, time: 1016, fingers: 5 });
-  assert.deepEqual(plain(Settings.parseEvent("stage-control.plus|g|finish|1|99.00")), { type: "gesture", phase: "finish", cancelled: true, time: 99 });
-  for (const other of ["someone-else|toggle", "stage-control.plus|exec|rm", "stage-control.plus|g|explode", "", null, "stage-control.plus|toggle" + "|".repeat(200)]) {
+  assert.deepEqual(plain(Settings.parseEvent("edree0x.stage-control-plus|g|finish|1|99.00")), { type: "gesture", phase: "finish", cancelled: true, time: 99 });
+  for (const other of ["someone-else|toggle", "edree0x.stage-control-plus|exec|rm", "edree0x.stage-control-plus|g|explode", "", null, "edree0x.stage-control-plus|toggle" + "|".repeat(200)]) {
     assert.equal(Settings.parseEvent(other), null, String(other));
   }
   passed++;
@@ -165,8 +165,8 @@ let passed = 0;
   const out = execFileSync("lua", ["-e", script], { cwd: root, encoding: "utf8" }).trim().split("\n");
   assert.equal(out[0], "status ok");
   const binds = out.filter((l) => l.startsWith("bind ")).sort();
-  assert.ok(binds.includes("bind SUPER + A => stage-control.plus|toggle (Open the stage (Stage Control Plus))"), binds.join("\n"));
-  assert.ok(binds.includes("bind CTRL + RIGHT => stage-control.plus|desktop-next (Move right a desktop (Stage Control Plus))"));
+  assert.ok(binds.includes("bind SUPER + A => edree0x.stage-control-plus|toggle (Open the stage (Stage Control Plus))"), binds.join("\n"));
+  assert.ok(binds.includes("bind CTRL + RIGHT => edree0x.stage-control-plus|desktop-next (Move right a desktop (Stage Control Plus))"));
   assert.equal(binds.length, 7);
   const events = out.filter((l) => l.startsWith("event ")).map((l) => plain(Settings.parseEvent(l.slice(6))));
   assert.deepEqual(events, [

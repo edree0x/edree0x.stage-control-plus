@@ -35,7 +35,7 @@ Item {
   property bool hyprIntegration: true
   property bool testMode: false
 
-  readonly property string pluginId: "stage-control.plus"
+  readonly property string pluginId: "edree0x.stage-control-plus"
   readonly property string pluginDir: decodeURIComponent(Qt.resolvedUrl(".").toString().replace(/^file:\/\//, "").replace(/\/$/, ""))
   readonly property string home: Quickshell.env("HOME")
 
@@ -618,7 +618,7 @@ Item {
   }
 
   // Other plugins can follow the stage on Hyprland's event socket:
-  // custom>>stage-control.plus|state|open and …|state|closed.
+  // custom>>edree0x.stage-control-plus|state|open and …|state|closed.
   onShownChanged: {
     if (hyprIntegration) Hyprland.dispatch('hl.dsp.event("' + Settings.EVENT_PREFIX + 'state|' + (shown ? "open" : "closed") + '")')
   }

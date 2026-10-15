@@ -10,10 +10,10 @@ import qs.Ui
 // takes no space.
 BarWidget {
   id: root
-  moduleName: "stage-control.plus"
+  moduleName: "edree0x.stage-control-plus"
 
   readonly property var service: bar && bar.shell && typeof bar.shell.serviceFor === "function"
-    ? bar.shell.serviceFor("stage-control.plus") : null
+    ? bar.shell.serviceFor("edree0x.stage-control-plus") : null
   readonly property bool wanted: !service || !service.settings || service.settings.barIcon !== false
 
   visible: wanted

@@ -40,25 +40,25 @@ fake.events = {}
 spec.action.start({ delta = { x = 1.234, y = -5.678 }, time_ms = 1000, fingers = 5, type = "swipe" })
 spec.action.update({ delta = { x = 0, y = -12.5 }, time_ms = 1016, fingers = 5, type = "swipe" })
 spec.action.finish({ cancelled = false, time_ms = 1032, type = "swipe" })
-check(fake.events[1] == "stage-control.plus|g|start|1.23|-5.68|1000.00|5", "start event: " .. tostring(fake.events[1]))
-check(fake.events[2] == "stage-control.plus|g|update|0.00|-12.50|1016.00|5", "update event: " .. tostring(fake.events[2]))
-check(fake.events[3] == "stage-control.plus|g|finish|0|1032.00", "finish event: " .. tostring(fake.events[3]))
+check(fake.events[1] == "edree0x.stage-control-plus|g|start|1.23|-5.68|1000.00|5", "start event: " .. tostring(fake.events[1]))
+check(fake.events[2] == "edree0x.stage-control-plus|g|update|0.00|-12.50|1016.00|5", "update event: " .. tostring(fake.events[2]))
+check(fake.events[3] == "edree0x.stage-control-plus|g|finish|0|1032.00", "finish event: " .. tostring(fake.events[3]))
 
 -- Garbage from Hyprland can't break the message format.
 fake.events = {}
 spec.action.update(nil)
 spec.action.update({ delta = { x = 0 / 0, y = math.huge }, time_ms = "x", fingers = 99 })
 spec.action.finish({ cancelled = true })
-check(fake.events[1] == "stage-control.plus|g|update|0.00|0.00|0.00|0", "nil event: " .. tostring(fake.events[1]))
-check(fake.events[2] == "stage-control.plus|g|update|0.00|0.00|0.00|0", "nan/inf event: " .. tostring(fake.events[2]))
-check(fake.events[3] == "stage-control.plus|g|finish|1|0.00", "cancelled finish: " .. tostring(fake.events[3]))
+check(fake.events[1] == "edree0x.stage-control-plus|g|update|0.00|0.00|0.00|0", "nil event: " .. tostring(fake.events[1]))
+check(fake.events[2] == "edree0x.stage-control-plus|g|update|0.00|0.00|0.00|0", "nan/inf event: " .. tostring(fake.events[2]))
+check(fake.events[3] == "edree0x.stage-control-plus|g|finish|1|0.00", "cancelled finish: " .. tostring(fake.events[3]))
 
 -- Shortcuts send their event.
 local binds = fake.active_binds()
 fake.events = {}
 for _, bind in ipairs(binds) do hl.dispatch(bind.dispatcher) end
-check(fake.events[1] == "stage-control.plus|toggle", "SUPER + A toggles the stage")
-check(fake.events[2] == "stage-control.plus|expose", "SUPER + ALT + A opens App Exposé")
+check(fake.events[1] == "edree0x.stage-control-plus|toggle", "SUPER + A toggles the stage")
+check(fake.events[2] == "edree0x.stage-control-plus|expose", "SUPER + ALT + A opens App Exposé")
 check(binds[1].options.description == "Open the stage (Stage Control Plus)", "description kept")
 
 -- Bad options are refused, one by one, and what was refused is raised as an
