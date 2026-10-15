@@ -748,9 +748,9 @@ PanelWindow {
     Glass {
       id: searchPill
       anchors.left: parent.left
-      anchors.top: parent.top
+      anchors.bottom: parent.bottom
       anchors.leftMargin: 26
-      anchors.topMargin: 30
+      anchors.bottomMargin: 22
       z: 1120
       height: 38
       width: Math.max(150, searchText.implicitWidth + 30)
@@ -783,9 +783,9 @@ PanelWindow {
     Glass {
       id: scopeChip
       anchors.right: parent.right
-      anchors.top: parent.top
+      anchors.bottom: parent.bottom
       anchors.rightMargin: 26
-      anchors.topMargin: 30
+      anchors.bottomMargin: 22
       z: 1120
       height: 38
       width: scopeText.implicitWidth + 30
