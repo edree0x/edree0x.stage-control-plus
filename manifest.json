@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "stage-control.plus",
+  "name": "Stage Control Plus",
+  "version": "1.0.0",
+  "author": "marcho78, kristofferR, edree0x",
+  "license": "MIT",
+  "homepage": "https://github.com/edree0x/stage-control.plus",
+  "description": "Organize your desktops from one view. Swipe up with four fingers (or press Super+A) and every window steps onto the stage as a live preview, under a bar of all your desktops with live thumbnails. Drag windows onto any desktop; add, remove, reorder and rename desktops, and keep empty ones until you remove them. Type to search, press Space for a Quick Look (Shift+Space in slow motion), Tab to switch between this desktop and every desktop, choose whether the grid spans one display or all of them, and close windows with a click. Liquid Glass styling, configurable hot corners, and a settings window for gestures, shortcuts and looks.",
+  "kinds": [
+    "service",
+    "panel",
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "service": "Service.qml",
+    "panel": "Panel.qml",
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Stage Control Plus",
+    "description": "Stage Control Plus. Click for settings, right-click to open the stage, middle-click for the current app's windows.",
+    "category": "Workspaces",
+    "allowMultiple": false,
+    "defaultSection": "right"
+  }
+}
